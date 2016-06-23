@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head lang="pt-br">
+        <meta charset="ISO-8859-1">
+        <title>Mobile - Multidados</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- FRONT-END RESOURCES -->
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/jqm-neue.css">
+        <link rel="stylesheet" href="css/jquery.toastmessage.css">
+        <link rel="stylesheet" href="default/css/css.css">
+
+        <!-- JS -->
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.mobile-1.3.1.min.js"></script>
+        <script src="js/jquery.toastmessage.js"></script>
+        <script src="default/js/default.js"></script>
+    </head>
+    <body style="background: url('img/bg_app_new.jpg') no-repeat; background-size: 100%;">
+        <div data-role="page" class="class_page pagina" data-control-title="Login Multidados" data-theme="b" id="page_login" style="background: url('img/bg_app_new.jpg') no-repeat">
+            <div data-role="content" style="padding: 0px">
+                <div id="box_logotipo" data-controltype="htmlblock" class="box_logotipo">
+                    <p>&nbsp;</p>
+                </div>
+                <div data-role="fieldcontain" data-controltype="textinput" class="box_url">
+                    <label for="url"> 
+                        URL ou código do Sistema
+                    </label>
+                    <input name="url" id="url" placeholder="" value="" type="text" autocomplete="off" autocorrect="off" autocapitalize="off">
+                    <span class="info-url">Informe ou copie a url de seu sistema pela web. Ex:&nbsp;http://multidadosti.com.br/vmulti</span>
+                </div>
+                <div data-role="fieldcontain" data-controltype="textinput" class="box_usuario">
+                    <label for="usuario">Usuário</label>
+                    <input name="usuario" id="usuario" placeholder="" value="" type="text" autocomplete="off" autocorrect="off" autocapitalize="off">
+                </div>
+                <div data-role="fieldcontain" data-controltype="textinput" class="box_senha">
+                    <label for="senha">Senha</label>
+                    <input name="senha" id="senha" placeholder="" value="" type="password">
+                </div>
+                <a id="botao_entrar" data-role="button" href="javascript:;" data-icon="arrow-r"
+                   data-iconpos="right" class="box_btentrar">Entrar</a>
+
+                <div style="margin-top:30px; text-align:center;">
+                    <label class="name_powered"></label>
+                </div>
+            </div>
+        </div>        
+        <script>
+            $("#botao_entrar").click(function () {
+                mobile_login();
+            });
+        </script>
+    </body>
+</html>
