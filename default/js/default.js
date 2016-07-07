@@ -126,12 +126,12 @@ function mobile_login(obj) {
             //AQUI VALIDAMOS A URL PELA SEGUNDA (/) PARA RECUPERAR O ENDERECO CORRETO
             var b1 = url_old.search('/'); //localiza a posicao da primeira (/)
             var url_new = url_old.slice(0, b1 + 1); //recupera apenas o localhost sem (/)
-            var dados2 = url_old.substr(b1 + 1); //recupera o que vem depois do localhost(/) para recuperar o resto depois da proxima (/)           
-            var b2 = dados2.search('/'); //recupera a posicao da segunda (/)         
+            var dados2 = url_old.substr(b1 + 1); //recupera o que vem depois do localhost(/) para recuperar o resto depois da proxima (/)
+            var b2 = dados2.search('/'); //recupera a posicao da segunda (/)
 
             //caso nao encontre a segunda (/) o valor é -1 neste caso false, entao nao podemos realizar o slice
             if (b2 > 0) {
-                url_new += dados2.slice(0, b2); //recupera apenas o conteundo antes do (/)           
+                url_new += dados2.slice(0, b2); //recupera apenas o conteundo antes do (/)
             } else {
                 url_new += dados2;
             }
@@ -192,7 +192,7 @@ function mobile_login(obj) {
                     type: 'POST',
                     url: ajax_file,
                     dataType: "jsonp",
-                    timeout: 15000, // aguarda 15s 
+                    timeout: 15000, // aguarda 15s
                     crossDomain: true,
                     data: {
                         usuario: dados['USUARIO'],
@@ -203,7 +203,7 @@ function mobile_login(obj) {
                         loading('hide');
                         //Andre Renovato - 03/03/2016
                         //Tentando identificar pq as vezes nao faz login na primeira tentativa
-                        //$().toastmessage('showErrorToast', 'URL incorreta ou vers&atilde;o incompat&iacute;vel' + statusText + ' - ' + error);                  
+                        //$().toastmessage('showErrorToast', 'URL incorreta ou vers&atilde;o incompat&iacute;vel' + statusText + ' - ' + error);
                         $().toastmessage('showErrorToast', '15 segundos se passaram sem resposta, verifique a URL informada');
 
                         console.log('mobile_login error : ');
@@ -385,6 +385,7 @@ function checkSession(primeira) {
                 console.log('Sessao false, logando novamente');
                 mobile_login(localStorage.getItem(app_multi + 'mobile_login'));
             } else if (primeira) {
+                loading('show', 'Carregando');
                 setDadosIniciais();
             }
         },
@@ -402,16 +403,19 @@ function checkSession(primeira) {
 }
 
 function setDadosIniciais() {
-
     // Source do Iframe. Chamando o PORTAL DE CLIENTES.
     var src_iframe = COMMON_URL + "?display=portal&m=usuarios&a=portalcliente";
-    $("#conteudo").attr("src", src_iframe);
-
+    $("#conteudo").css('display', 'none')
+            .attr("src", src_iframe)
+            .load(function () {
+                loading('hide');
+                $(this).fadeIn('slow');
+            });
 }
 
 /*
- * Identifica a origem do acesso do usuário, se foi feito através de um sistema iOS, Android ou 
- * Windows. Qualquer outro, deverá ser inserido no array agents, declarado no topo. 
+ * Identifica a origem do acesso do usuário, se foi feito através de um sistema iOS, Android ou
+ * Windows. Qualquer outro, deverá ser inserido no array agents, declarado no topo.
  * O retorno é um string com o nome do agent do usuário.
  */
 function detectar_userAgent() {
