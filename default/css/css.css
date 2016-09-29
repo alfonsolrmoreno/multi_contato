@@ -5,7 +5,7 @@
 .box_btentrar, .bt_voltar, .btn_default
 {
     background-color: #455A6D !important;
-    border-color: #FFF !important;    
+    border-color: #FFF !important;
     margin:0px 30px 0px 30px;
 }
 .btn_default
@@ -22,7 +22,7 @@
 
 .info-url{
     font-size: 11px;
-    color: #F08080;    
+    color: #F08080;
 }
 
 .class_page
@@ -155,17 +155,39 @@ ul.touch li.ui-li-has-alt a.ui-btn {
     margin-bottom: .75em;
 }
 
-/* ########################################################################### 
+/* ###########################################################################
    # ____________________________INDEX.HTML_________________________________ #
-   ########################################################################### */ 
+   ########################################################################### */
 
 .full-width-iframe { // Faz os Iframe ficar full-screen.
-    border: 0;
-    position: fixed;
-    top: 40px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: calc(100% - 40px);
+                     border: 0;
+                     position: fixed;
+                     top: 40px;
+                     left: 0;
+                     right: 0;
+                     bottom: 0;
+                     width: 100%;
+                     height: calc(100% - 40px);
+}
+
+.instrucoes_uso {
+    height:90px;
+    background: url('../../img/icon_instrucao.png') no-repeat;
+    background-position: 10% center;
+    margin-top:10px;
+}
+
+.instrucoes_uso h4{
+    padding-top:10px;
+    padding-left:110px;
+    padding-bottom:0px;
+    font-size:1.0em;
+    margin:0px;
+}
+.instrucoes_uso p {
+    padding-left:110px;
+    font-size:0.8em;
+    padding-top:0px;
+    margin:0px;
+
 }

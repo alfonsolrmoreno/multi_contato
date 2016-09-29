@@ -35,7 +35,7 @@ if (typeof Objeto_real != 'undefined' && Objeto_real != '' && Objeto_real) {
 
     //Andre Renovato - 26-02-2016
     //Mantendo dados no formulario de login
-    $(function () {
+    $(function() {
         $("#url").val(COMMON_URL);
         $("#usuario").val(Objeto_json.user_bd);
         if (typeof Objeto_json.senha != 'undefined') {
@@ -171,7 +171,7 @@ function mobile_login(obj) {
             data: {
                 url: COMMON_URL_MOBILE
             },
-            error: function () {
+            error: function() {
 
                 if (debug_mode) {
                     alert('ERROR MOBILE');
@@ -180,7 +180,7 @@ function mobile_login(obj) {
                 loading('hide');
                 $().toastmessage('showErrorToast', 'Falha de comunica&ccedil;&atilde;o com o servidor. Verifique sua conex&atilde;o e se a URL est&aacute; correta');
             },
-            success: function (data) {
+            success: function(data) {
 
                 if (debug_mode) {
                     alert('SUCCESS');
@@ -199,7 +199,7 @@ function mobile_login(obj) {
                         senha: dados['SENHA'],
                         url: dados['URL']
                     },
-                    error: function (jqXHR, statusText, error) {
+                    error: function(jqXHR, statusText, error) {
                         loading('hide');
                         //Andre Renovato - 03/03/2016
                         //Tentando identificar pq as vezes nao faz login na primeira tentativa
@@ -218,7 +218,7 @@ function mobile_login(obj) {
 
                         window.location.href = 'pages.html#page_login';
                     },
-                    success: function (data) {
+                    success: function(data) {
                         if (data['erro']) {
                             loading('hide');
                             $().toastmessage('showErrorToast', data['erro']);
@@ -313,14 +313,14 @@ function mobile_logout() {
             senha: dados['SENHA'],
             url: dados['URL']
         },
-        error: function () {
+        error: function() {
             loading('hide');
             //caso servidor nao esteja disponivel vamos apenas limpar os dados de conexao e redirecionar para pagina de login
             //localStorage.clear();
             Storagelogout();
             window.location.href = 'pages.html#page_login';
         },
-        success: function (data) {
+        success: function(data) {
             if (data) {
                 //localStorage.clear();
                 Storagelogout();
@@ -340,7 +340,7 @@ function checkNetConnection() {
     var scriptElem = document.createElement('script');
     scriptElem.type = 'text/javascript';
 
-    scriptElem.onerror = function () {
+    scriptElem.onerror = function() {
 
         if (conexao_ativa) {
             loading('show', "Sem conexão com a Internet. Favor verificar o sinal.");
@@ -378,7 +378,7 @@ function checkSession(primeira) {
         timeout: 10000,
         crossDomain: true,
         data: Objeto_json,
-        success: function (data) {
+        success: function(data) {
             loading('hide');
             console.log('Sessao = ' + data.session_ativa);
             if (data.session_ativa == false) {
@@ -389,7 +389,7 @@ function checkSession(primeira) {
                 setDadosIniciais();
             }
         },
-        error: function () {
+        error: function() {
             if (num_tentativas < 3) {
                 loading('show', "O tempo de resposta do servidor está lento.");
                 num_tentativas++;
@@ -407,7 +407,7 @@ function setDadosIniciais() {
     var src_iframe = COMMON_URL + "?display=portal&m=usuarios&a=portalcliente";
     $("#conteudo").css('display', 'none')
             .attr("src", src_iframe)
-            .load(function () {
+            .load(function() {
                 loading('hide');
                 $(this).fadeIn('slow');
             });
@@ -422,7 +422,7 @@ function detectar_userAgent() {
     user_agent = user_agent.toUpperCase(); // Evitando problemas com maiúsculas e minúsculas
     var agent = new String("");
 
-    $(agents).each(function (k, v) {
+    $(agents).each(function(k, v) {
         agent_info = user_agent.indexOf(v.toUpperCase()); // Evitando problemas com maiúsculas e minúsculas
 
         if (agent_info != '-1') {
@@ -441,3 +441,11 @@ function detectar_userAgent() {
         return false;
     }
 }
+
+$(document).ready(function() {
+
+    //Define footer para todas as páginas
+    $(".name_powered").html('Powered by MultidadosTI &copy; - ' + vs_mobile);
+
+
+});//fim doc ready

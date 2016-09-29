@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta charset="ISO-8859-1"> <!-- Antes do title p/ evitar problemas de 
+        <meta charset="ISO-8859-1"> <!-- Antes do title p/ evitar problemas de
                                     codificação.-->
 
         <!-- DESABILITANDO ZOOM EM DISPOSITIVOS MOBILE -->
-        <!-- You can disable zooming capabilities on mobile devices by adding 
-        user-scalable=no to the viewport meta tag. This disables zooming, 
+        <!-- You can disable zooming capabilities on mobile devices by adding
+        user-scalable=no to the viewport meta tag. This disables zooming,
         meaning users are only able to scroll, and results in your site feeling
-        a bit more like a native application. Overall, we don't recommend this 
+        a bit more like a native application. Overall, we don't recommend this
         on every site, so use caution! -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="css/jqm-neue.css">
         <link rel="stylesheet" href="css/jquery.toastmessage.css">
         <link rel="stylesheet" href="default/css/css.css">
-        <link rel="stylesheet" href="default/css/reset.min.css"> 
+        <link rel="stylesheet" href="default/css/reset.min.css">
         <link rel="stylesheet" href="plugins/mmenu/css/custom.css" />
         <link rel="stylesheet" href="plugins/mmenu/dist/css/jquery.mmenu.all.css" />
 
@@ -105,17 +105,17 @@
                     }
                 });
 
-                // Aplicando o Estilo específico dependendo do user Agente 
+                // Aplicando o Estilo específico dependendo do user Agente
                 // (Android, iPhone ou Windows)
                 switch (detectar_userAgent()) {
                     case "IPHONE" :
-                        // Esse bloco de código está corrigindo o scrolling 
+                        // Esse bloco de código está corrigindo o scrolling
                         // no iPhone.
-                        $("div.header").css({ // Deixando o menu fixo na tela
+                        $("div.header").css({// Deixando o menu fixo na tela
                             position: "fixed"
                         });
-                        $("iframe#conteudo").css({ // Deixando o iframe estático e com margem superior de 40px (altura do menu)
-                            position: "static", 
+                        $("iframe#conteudo").css({// Deixando o iframe estático e com margem superior de 40px (altura do menu)
+                            position: "static",
                             margin: "40px 0 0 0"
                         });
                         break;
